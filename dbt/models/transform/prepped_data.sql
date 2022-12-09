@@ -1,3 +1,10 @@
+{{
+    config(
+        materialized='view'
+    )
+}}
+
+
 SELECT A.ID 
     , FIRST_NAME
     , LAST_NAME
