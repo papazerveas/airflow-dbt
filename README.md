@@ -16,13 +16,23 @@ cd dbt
 dbt deps
 
 
-dbt test --profiles-dir .
-
 ## seed csv
 cd dbt && dbt seed --profiles-dir .
+
 
 ## daily_transform
 cd dbt && dbt run --models transform --profiles-dir .
 
 ## daily_analysis
 cd dbt && dbt run --models analysis --profiles-dir .
+
+
+## rebuild an incremental model
+dbt run --full-refresh --select my_incremental_model+
+
+## on new data
+dbt seed --profiles-dir .
+dbt run -x -m transform --profiles-dir .
+dbt test --profiles-dir .
+
+

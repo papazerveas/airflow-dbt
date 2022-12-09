@@ -1,6 +1,7 @@
 {{
     config(
         materialized='incremental'
+        , unique_key = 'booking_reference' 
     )
 }}
 
